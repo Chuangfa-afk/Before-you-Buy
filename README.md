@@ -213,7 +213,7 @@ This app provides market data and AI-generated analysis for **informational purp
 
 **Made with ☕ and mild road rage**
 
-[Live App](https://before-you-buy.onrender.com) · [Report a Bug](https://github.com/YOUR_USERNAME/before-you-buy/issues) · [Request a Feature](https://github.com/YOUR_USERNAME/before-you-buy/issues)
+[Live App](https://before-you-buy.onrender.com) · [Report a Bug](https://github.com/Chuangfa-afk/before-you-buy/issues) · [Request a Feature](https://github.com/Chuangfa-afk/before-you-buy/issues)
 
 _Go get that deal. 🚗💨_
 
