@@ -1,0 +1,53 @@
+{
+  "vehicles": {
+    "nhtsa": {
+      "source": "NHTSA",
+      "url": "https://www.nhtsa.gov/",
+      "year": 2024,
+      "confidence": "high",
+      "note": "Recalls, complaints, crash/fire reports, and safety ratings from NHTSA.gov."
+    },
+    "fuel": {
+      "source": "EPA",
+      "url": "https://www.fueleconomy.gov/",
+      "year": 2024,
+      "confidence": "high",
+      "note": "Typical annual fuel cost based on average driving and fuel prices."
+    },
+    "charging": {
+      "source": "EPA / EIA",
+      "url": "https://www.fueleconomy.gov/",
+      "year": 2024,
+      "confidence": "high",
+      "note": "Typical annual electricity cost for home and public charging."
+    },
+    "insurance": {
+      "source": "NAIC",
+      "url": "https://content.naic.org/",
+      "year": 2023,
+      "confidence": "medium",
+      "note": "Average auto insurance expenditures as a share of vehicle value."
+    },
+    "registration": {
+      "source": "BLS",
+      "url": "https://www.bls.gov/",
+      "year": 2023,
+      "confidence": "medium",
+      "note": "Average state and local registration fees."
+    },
+    "maintenance": {
+      "source": "AAA",
+      "url": "https://newsroom.aaa.com/auto/your-driving-costs/",
+      "year": 2023,
+      "confidence": "high",
+      "note": "Average per-mile maintenance and repair costs converted to annual figures."
+    },
+    "depreciation": {
+      "source": "iSeeCars",
+      "url": "https://www.iseecars.com/",
+      "year": 2023,
+      "confidence": "high",
+      "note": "Typical multi-year depreciation for mainstream vehicles."
+    }
+  }
+}

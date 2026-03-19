@@ -1,0 +1,3284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Before You Buy 🚗 — MSRP Intelligence</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #F7F6F3;
+      --surface: #FFFFFF;
+      --border: #E5E3DE;
+      --border-input: #D1CFC9;
+      --text-primary: #1A1917;
+      --text-secondary: #6B6860;
+      --accent: #1D4ED8;
+      --accent-light: #EFF6FF;
+      --green: #15803D;
+      --yellow: #B45309;
+      --red: #B91C1C;
+      --bg-main: #F7F6F3;
+      --bg-alt: #F2F1EE;
+      --bg-card: #FFFFFF;
+      --border-subtle: #E5E3DE;
+      --border-medium: #D1CFC9;
+      --text-main: #1A1917;
+      --text-muted: #6B6860;
+      --text-soft: #6B6860;
+      --good: #15803D;
+      --warn: #B45309;
+      --bad: #B91C1C;
+      --radius-sm: 8px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-pill: 999px;
+      --shadow-card: 0 1px 3px rgba(0,0,0,0.06);
+      --space-8: 8px;
+      --space-12: 12px;
+      --space-16: 16px;
+      --space-24: 24px;
+      --space-32: 32px;
+      --space-48: 48px;
+      --space-64: 64px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --shadow-lg: 0 4px 12px rgba(0,0,0,0.08);
+      --font-mono: "IBM Plex Mono", monospace;
+      --font-serif: "DM Serif Display", Georgia, serif;
+      --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background:
+        radial-gradient(ellipse at 8% 0%, rgba(29,78,216,0.07) 0%, transparent 45%),
+        radial-gradient(ellipse at 92% 90%, rgba(21,128,61,0.05) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 55%, rgba(180,83,9,0.03) 0%, transparent 50%),
+        #F4F3F0;
+      color: var(--text-primary);
+    }
+
+    .font-mono { font-family: var(--font-mono); }
+    .font-serif { font-family: var(--font-serif); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    }
+
+    /* ── Site hero ── */
+    .site-hero {
+      background: linear-gradient(140deg, #0B1437 0%, #112577 40%, #1D4ED8 75%, #2563EB 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .site-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+    .site-hero::after {
+      content: '';
+      position: absolute;
+      width: 560px; height: 560px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 70%);
+      top: -260px; right: -100px;
+      pointer-events: none;
+    }
+    .hero-wave {
+      display: block;
+      width: 100%;
+      line-height: 0;
+      overflow: hidden;
+    }
+    .hero-wave svg {
+      display: block;
+      width: 100%;
+    }
+    .hero-deco {
+      position: absolute;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(37,99,235,0.4) 0%, transparent 70%);
+      bottom: -160px; left: -60px;
+      pointer-events: none;
+    }
+    .site-hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 52px 24px 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .app-shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: var(--space-48) var(--space-24) var(--space-64);
+    }
+
+    header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-16);
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-12);
+      min-width: 0;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-16);
+      flex-wrap: wrap;
+    }
+
+    .brand-name {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-size: 2.75rem;
+      font-weight: 400;
+      color: #FFFFFF;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+    .brand-name .car-emoji {
+      font-style: normal;
+      margin-right: 6px;
+    }
+
+    .pill {
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      letter-spacing: 0.03em;
+      backdrop-filter: blur(4px);
+    }
+
+    .brand-subtitle {
+      margin: 0;
+      font-size: 1.0625rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+      max-width: 520px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: var(--space-32);
+      margin-top: var(--space-32);
+      flex-wrap: wrap;
+    }
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .hero-stat-value {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .hero-divider {
+      width: 1px;
+      background: rgba(255,255,255,0.18);
+      align-self: stretch;
+      margin: 4px 0;
+    }
+
+    .header-meta { display: none; }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-32);
+      max-width: 100%;
+    }
+
+    .card {
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
+      padding: var(--space-32);
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    .card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1), 0 2px 6px rgba(0,0,0,0.05);
+      transform: translateY(-1px);
+    }
+    /* Accent top-border on the form card */
+    section.card:first-of-type {
+      border-top: 4px solid var(--accent);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: var(--space-16);
+      gap: var(--space-16);
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--text-primary);
+    }
+
+    .card-subtitle {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    
+
+    .card-section {
+      margin-bottom: 10px;
+      padding: var(--space-32);
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 0;
+      align-items: start;
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .grid-divider {
+      background: var(--border);
+      min-height: 200px;
+      align-self: stretch;
+    }
+
+    @media (max-width: 880px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .grid-divider { display: none; }
+      header { flex-direction: column; }
+      .brand-subtitle { max-width: none; }
+      .brand-name { font-size: 2rem; }
+      .hero-stats { gap: var(--space-24); }
+      .site-hero-inner { padding: 36px 20px 44px; }
+      .app-shell { padding: var(--space-32) var(--space-16) var(--space-48); }
+    }
+
+    .vehicle-condition-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-16);
+      margin-top: var(--space-24);
+      margin-bottom: var(--space-16);
+      flex-wrap: wrap;
+    }
+
+    .vehicle-condition-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .segmented-toggle {
+      display: inline-flex;
+      padding: 4px;
+      gap: 0;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-input);
+      background: var(--bg);
+      position: relative;
+    }
+
+    .segmented-toggle .sliding-pill {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: calc(50% - 4px);
+      height: calc(100% - 8px);
+      background: var(--surface);
+      border-radius: 6px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+      transition: transform 0.2s ease;
+      pointer-events: none;
+    }
+    .segmented-toggle[data-active="used"] .sliding-pill { transform: translateX(100%); }
+
+    .segmented-toggle button {
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      padding: 8px 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: color 0.15s ease;
+      z-index: 1;
+    }
+
+    .segmented-toggle button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .segmented-toggle button.active { color: var(--text-primary); }
+    .segmented-toggle button:hover:not(.active) { color: var(--text-primary); }
+
+    .search-form {
+      display: grid;
+      grid-template-columns: 100px 1fr 1.3fr 110px 64px;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+      margin-bottom: var(--space-lg);
+      align-items: end;
+    }
+    .search-form.with-vin {
+      grid-template-columns: 100px 1fr 1.3fr 140px 110px 64px;
+    }
+
+    .search-form .field-year {
+      grid-column: 1;
+    }
+    .search-form .field-make {
+      grid-column: 2;
+    }
+    .search-form .field-model {
+      grid-column: 3;
+    }
+    .search-form .field-vin {
+      grid-column: 4;
+    }
+    .search-form .field-price {
+      grid-column: 5;
+    }
+    .search-form .field-years {
+      grid-column: 6;
+    }
+    .search-form:not(.with-vin) .field-vin { display: none !important; }
+    .search-form:not(.with-vin) .field-price { grid-column: 4; }
+    .search-form:not(.with-vin) .field-years { grid-column: 5; }
+    @media (max-width: 900px) {
+      .search-form {
+        grid-template-columns: 100px 1fr 1fr;
+        gap: 12px;
+      }
+      .search-form .field-year { grid-column: 1; }
+      .search-form .field-make { grid-column: 2; }
+      .search-form .field-model { grid-column: 3; }
+      .search-form .field-vin { grid-column: 1 / -1; }
+      .search-form .field-price { grid-column: 1; }
+      .search-form .field-years { grid-column: 2; }
+    }
+
+    @media (max-width: 720px) {
+      .search-form {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .search-form .field-year { grid-column: 1; }
+      .search-form .field-make { grid-column: 2; }
+      .search-form .field-model { grid-column: 1 / -1; }
+      .search-form .field-vin { grid-column: 1 / -1; }
+      .search-form .field-price { grid-column: 1; }
+      .search-form .field-years { grid-column: 2; }
+    }
+
+    .nhtsa-safety-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .nhtsa-stat {
+      background: var(--bg-alt);
+      border-radius: var(--radius-md);
+      padding: var(--space-sm) var(--space-md);
+      border: 1px solid var(--border-subtle);
+    }
+    .nhtsa-stat-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 2px;
+    }
+    .nhtsa-stat-value {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .nhtsa-stat-value.warn { color: var(--warn); }
+    .nhtsa-stat-value.bad { color: var(--bad); }
+    .nhtsa-stat-value.good { color: var(--good); }
+    .nhtsa-recalls-list, .nhtsa-complaints-list {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      max-height: 120px;
+      overflow-y: auto;
+    }
+    .nhtsa-recalls-list li, .nhtsa-complaints-list li {
+      margin-bottom: 4px;
+      padding-left: 8px;
+    }
+
+    .ai-analysis-content {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .ai-analysis-content.loading {
+      color: var(--text-secondary);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+
+    .skeleton {
+      background: linear-gradient(90deg, var(--border) 25%, var(--bg-alt) 50%, var(--border) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s ease-in-out infinite;
+      border-radius: var(--radius-sm);
+    }
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+    .skeleton-loading {
+      position: relative;
+      overflow: hidden;
+    }
+    .skeleton-loading::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .ai-demo-badge {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      background: var(--accent-light);
+      border: 1px solid rgba(37, 99, 235, 0.3);
+      color: var(--accent);
+    }
+    .ai-analysis-content p { margin: 0 0 0.75em 0; }
+    .ai-analysis-content ul { margin: 0.5em 0; padding-left: 1.25em; }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    .field label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-height: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-input);
+      background: var(--surface);
+      padding: 0 14px;
+      color: var(--text-primary);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      line-height: 1.4;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+
+    .field textarea {
+      height: auto;
+      min-height: 72px;
+      padding: 12px 14px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-light);
+    }
+
+    .field input:focus-visible,
+    .field select:focus-visible,
+    .field textarea:focus-visible {
+      outline: none;
+    }
+
+    .btn-primary {
+      flex: 1;
+      min-width: 0;
+      height: 50px;
+      min-height: 50px;
+      border-radius: var(--radius-sm);
+      border: none;
+      background: linear-gradient(135deg, #1D4ED8 0%, #2563EB 60%, #3B82F6 100%);
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: opacity 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(29,78,216,0.35);
+      letter-spacing: 0.01em;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.95;
+      box-shadow: 0 6px 20px rgba(29,78,216,0.45);
+      transform: translateY(-1px);
+    }
+    .btn-primary:active { opacity: 1; transform: translateY(0); }
+    .btn-primary:disabled { opacity: 0.6; cursor: wait; box-shadow: none; transform: none; }
+
+    .btn-primary .btn-spinner {
+      display: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      flex-shrink: 0;
+    }
+    .btn-primary.loading .btn-spinner { display: inline-block; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .analyze-actions {
+      margin-top: var(--space-32);
+      margin-bottom: var(--space-24);
+      width: 100%;
+      display: flex;
+      gap: var(--space-16);
+      flex-wrap: wrap;
+    }
+
+    .btn-analyze { flex: 1; min-width: 200px; }
+
+    .btn-ai-analyze {
+      height: 48px;
+      min-height: 48px;
+      padding: 0 24px;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+    }
+    .btn-ai-analyze:hover {
+      border-color: var(--accent);
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+    .btn-ai-analyze:disabled { opacity: 0.6; cursor: not-allowed; }
+    .btn-ai-analyze .ai-icon { font-size: 1.1em; }
+
+    .btn-secondary {
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-secondary);
+      padding: 8px 16px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      transition: box-shadow 0.15s ease, transform 0.15s ease;
+      flex-shrink: 0;
+    }
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+      box-shadow: 0 2px 8px rgba(29,78,216,0.1);
+      transform: translateY(-1px);
+    }
+
+    .example-chips-row {
+      display: flex;
+      gap: var(--space-8);
+      overflow-x: auto;
+      padding-bottom: var(--space-8);
+      margin-top: var(--space-16);
+      margin-bottom: var(--space-16);
+      -webkit-overflow-scrolling: touch;
+    }
+    .example-chips-row::-webkit-scrollbar { height: 4px; }
+    .example-chips-row::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    .example-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-8);
+    }
+
+    .price-bar-wrap {
+      margin-top: var(--space-16);
+      padding: var(--space-24);
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      border: 1px solid var(--border);
+    }
+
+    .price-bar-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .price-bar {
+      position: relative;
+      height: 6px;
+      border-radius: var(--radius-pill);
+      overflow: visible;
+      background: linear-gradient(90deg, var(--green), #22c55e, var(--yellow), #f59e0b, var(--red));
+    }
+
+    .price-marker {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid var(--accent);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+      z-index: 2;
+    }
+
+    .price-marker-dot { display: none; }
+
+    .price-legend {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+    }
+
+    .price-verdict-row {
+      margin-top: var(--space-16);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-16);
+    }
+
+    .badge {
+      border-radius: var(--radius-sm);
+      padding: 8px 14px;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      border-left: 4px solid;
+      letter-spacing: 0.01em;
+    }
+
+    .badge-great {
+      border-left-color: var(--green);
+      color: var(--green);
+      background: rgba(21,128,61,0.08);
+    }
+    .badge-fair {
+      border-left-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+    .badge-above {
+      border-left-color: var(--yellow);
+      color: var(--yellow);
+      background: rgba(180,83,9,0.08);
+    }
+    .badge-overpriced {
+      border-left-color: var(--red);
+      color: var(--red);
+      background: #FEF2F2;
+    }
+    .badge-unknown {
+      border-left-color: var(--border);
+      color: var(--text-secondary);
+      background: var(--bg-alt);
+    }
+
+    .price-numbers {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-align: right;
+      font-family: var(--font-mono);
+    }
+
+    .true-cost-box { margin-top: var(--space-16); }
+
+    .true-cost-hero {
+      text-align: center;
+      padding: var(--space-32);
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0B1437 0%, #1D4ED8 100%);
+      border: none;
+      margin-bottom: var(--space-24);
+    }
+
+    .true-cost-hero-value {
+      font-family: var(--font-mono);
+      font-size: 2.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+      line-height: 1.2;
+    }
+
+    .true-cost-hero-value.net-gain { color: #86EFAC; }
+
+    .true-cost-hero-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-top: 8px;
+    }
+
+    .true-cost-bar-wrap {
+      margin-bottom: 10px;
+    }
+
+    .true-cost-bar {
+      display: flex;
+      height: 8px;
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+      background: var(--border-subtle);
+    }
+
+    .true-cost-bar-segment {
+      transition: flex-grow 0.3s ease;
+    }
+
+    .true-cost-bar-segment.purchase {
+      background: var(--accent);
+    }
+
+    .true-cost-bar-segment.costs {
+      background: #f59e0b;
+    }
+
+    .true-cost-bar-legend {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 6px;
+      font-size: 0.6875rem;
+      color: var(--text-soft);
+    }
+
+    .true-cost-bar-legend span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .true-cost-bar-legend .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    .true-cost-bar-legend .dot.purchase { background: var(--accent); }
+    .true-cost-bar-legend .dot.costs { background: #f59e0b; }
+
+    .true-cost-metrics {
+      margin-top: var(--space-16);
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-16);
+      background: var(--bg);
+      border-radius: var(--radius-sm);
+      padding: var(--space-16);
+      border: 1px solid var(--border);
+    }
+
+    .true-cost-metric {
+      padding: 0;
+      border: none;
+      background: transparent;
+    }
+
+    .true-cost-metric-value { font-family: var(--font-mono); }
+
+    .true-cost-metric-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 5px;
+    }
+
+    .true-cost-metric-value {
+      color: var(--text-primary);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 720px) {
+      .true-cost-metrics {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .true-cost-note {
+      margin-top: 10px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.8125rem;
+      line-height: 1.45;
+    }
+
+    .true-cost-formula {
+      margin-top: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-md);
+      background: var(--accent-light);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      color: var(--text-main);
+      font-size: 0.875rem;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .true-cost-breakdown {
+      margin-top: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .true-cost-breakdown-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+    }
+
+    .cost-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: var(--space-16);
+    }
+
+    .cost-item-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--space-16);
+      align-items: baseline;
+      padding: var(--space-8) 0;
+      border-bottom: 1px dotted var(--border);
+      font-size: 0.875rem;
+    }
+    .cost-item-row:last-child { border-bottom: none; }
+
+    .cost-item-row-header {
+      display: contents;
+    }
+
+    .cost-item-name {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .cost-item-amount {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      text-align: right;
+    }
+
+    .cost-item-amount.appreciation {
+      color: var(--good);
+    }
+
+    .cost-item-detail {
+      font-size: 0.75rem;
+      line-height: 1.35;
+      color: var(--text-muted);
+    }
+
+    .cost-item-bar {
+      position: relative;
+      height: 4px;
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+      background: var(--border-subtle);
+    }
+
+    .cost-item-bar-fill {
+      position: absolute;
+      inset: 0;
+      transform-origin: left;
+      background: var(--accent);
+    }
+
+    .cost-item-bar-fill.appreciation {
+      background: var(--good);
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 3px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .chip {
+      border-radius: var(--radius-pill);
+      padding: 2px 8px;
+      background: var(--chip-bg);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.75rem;
+    }
+
+    .chip-high {
+      color: #047857;
+      border-color: rgba(5, 150, 105, 0.4);
+      background: rgba(5, 150, 105, 0.1);
+    }
+
+    .chip-medium {
+      color: #b45309;
+      border-color: rgba(217, 119, 6, 0.4);
+      background: rgba(217, 119, 6, 0.1);
+    }
+
+    .chip-low {
+      color: var(--text-main);
+      border-color: var(--border-subtle);
+      background: var(--chip-bg);
+    }
+
+    .chip-live {
+      border-color: rgba(37, 99, 235, 0.4);
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    .chip-override {
+      border-color: rgba(217, 119, 6, 0.4);
+      background: rgba(217, 119, 6, 0.1);
+      color: #b45309;
+    }
+
+    .chip-source {
+      border-color: var(--border-subtle);
+      background: var(--chip-bg);
+      color: var(--text-muted);
+      cursor: default;
+      position: relative;
+    }
+
+    .chip-source:hover .tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0);
+    }
+
+    .tooltip {
+      position: absolute;
+      bottom: 130%;
+      left: 50%;
+      transform: translate(-50%, 8px);
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.12s ease, transform 0.12s ease, visibility 0.12s ease;
+      background: var(--bg-card);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      min-width: 230px;
+      max-width: 280px;
+      z-index: 20;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .tooltip-title {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--text-main);
+    }
+
+    .tooltip-body {
+      font-size: 0.8125rem;
+      line-height: 1.45;
+      color: var(--text-muted);
+    }
+
+    /* Customize assumptions */
+    .collapsible {
+      margin-top: var(--space-sm);
+      border-radius: var(--radius-md);
+      border: 1px dashed var(--border-medium);
+      background: var(--bg-alt);
+    }
+
+    .collapsible-header {
+      padding: var(--space-sm) var(--space-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .collapsible-body {
+      padding: var(--space-sm) var(--space-md);
+      display: none;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .collapsible.open .collapsible-body {
+      display: block;
+    }
+
+    .assumptions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-sm);
+      margin-bottom: var(--space-sm);
+    }
+
+    @media (max-width: 880px) {
+      .assumptions-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .assumption-field label {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-soft);
+      margin-bottom: 2px;
+      display: block;
+    }
+
+    .assumption-field input {
+      width: 100%;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      color: var(--text-main);
+      padding: 6px 10px;
+      font-size: 0.8125rem;
+    }
+
+    /* Right column: gotchas, timing, reviews, AI */
+    .stacked {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    #insights-column {
+      animation: fadeSlideIn 0.4s ease forwards;
+    }
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #summary-results {
+      animation: fadeSlideIn 0.35s ease forwards;
+    }
+
+    .gotcha-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.875rem;
+    }
+
+    .gotcha-item {
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-alt);
+    }
+
+    .gotcha-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .gotcha-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .gotcha-cost {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-soft);
+    }
+
+    .insight-badge {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      margin-right: var(--space-12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+    }
+    .insight-badge.timing {
+      background: linear-gradient(135deg, #1D4ED8, #3B82F6);
+      box-shadow: 0 2px 8px rgba(29,78,216,0.3);
+    }
+    .insight-badge.timing::after { content: '⏱'; }
+    .insight-badge.reviews {
+      background: linear-gradient(135deg, #15803D, #22C55E);
+      box-shadow: 0 2px 8px rgba(21,128,61,0.3);
+    }
+    .insight-badge.reviews::after { content: '★'; }
+    .insight-badge.gotchas {
+      background: linear-gradient(135deg, #B91C1C, #EF4444);
+      box-shadow: 0 2px 8px rgba(185,28,28,0.3);
+    }
+    .insight-badge.gotchas::after { content: '!'; font-weight: 700; font-family: var(--font-sans); color: #fff; font-size: 1rem; }
+    .insight-badge.tips {
+      background: linear-gradient(135deg, #B45309, #F59E0B);
+      box-shadow: 0 2px 8px rgba(180,83,9,0.3);
+    }
+    .insight-badge.tips::after { content: '✦'; }
+
+    .insight-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-12);
+    }
+
+    .negotiation-tips-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .negotiation-tip-item {
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(217, 119, 6, 0.3);
+      background: rgba(217, 119, 6, 0.06);
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .timing-body {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .timing-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-alt);
+    }
+
+    .timing-pill.good {
+      border-color: rgba(5, 150, 105, 0.4);
+      background: rgba(5, 150, 105, 0.1);
+      color: #047857;
+    }
+
+    .timing-pill.bad {
+      border-color: rgba(220, 38, 38, 0.4);
+      background: rgba(220, 38, 38, 0.08);
+      color: #b91c1c;
+    }
+
+    .timing-pill.neutral {
+      border-color: var(--border-subtle);
+      color: var(--text-muted);
+    }
+
+    .timing-best-price-box {
+      display: none;
+      margin-top: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(5, 150, 105, 0.4);
+      background: rgba(5, 150, 105, 0.08);
+    }
+
+    .timing-best-price-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-soft);
+      margin-bottom: 4px;
+    }
+
+    .timing-best-price-value {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--good);
+    }
+
+    .timing-chart-subtitle {
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-top: 2px;
+      margin-bottom: 6px;
+    }
+
+    .timing-month-chart-wrap {
+      margin-top: var(--space-md);
+    }
+
+    .timing-chart-box {
+      background: var(--bg-alt);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      overflow: visible;
+    }
+
+    .timing-chart-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-soft);
+      margin-bottom: 12px;
+    }
+
+    .timing-chart-area {
+      display: flex;
+      align-items: stretch;
+      gap: 10px;
+      min-width: 0;
+      overflow: visible;
+    }
+
+    .timing-chart-yaxis {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2px 0 24px 0;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      width: 44px;
+    }
+
+    .timing-chart-yaxis span {
+      white-space: nowrap;
+    }
+
+    .timing-chart-bars-wrap {
+      flex: 1;
+      min-width: 0;
+      overflow-x: auto;
+      overflow-y: visible;
+      padding-bottom: 2px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .timing-chart-bars-wrap::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .timing-chart-bars-wrap::-webkit-scrollbar-track {
+      background: var(--border-subtle);
+      border-radius: 2px;
+    }
+
+    .timing-chart-bars-wrap::-webkit-scrollbar-thumb {
+      background: var(--border-medium);
+      border-radius: 2px;
+    }
+
+    .timing-month-chart {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 6px;
+      align-items: end;
+      min-width: 360px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .timing-month-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      min-width: 0;
+      overflow: visible;
+    }
+
+    .timing-month-bar-wrap {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      height: 56px;
+      position: relative;
+    }
+
+    #timing-hover-tooltip {
+      position: fixed;
+      z-index: 9999;
+      padding: 6px 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-main);
+      white-space: nowrap;
+      pointer-events: none;
+      box-shadow: var(--shadow-lg);
+      display: none;
+    }
+
+    .timing-month-bar {
+      width: 100%;
+      max-width: 22px;
+      border-radius: 3px 3px 0 0;
+      min-height: 4px;
+      transition: height 0.2s ease;
+      background: var(--accent);
+    }
+
+    .timing-month-cell.rating-best .timing-month-bar {
+      background: var(--good);
+    }
+
+    .timing-month-cell.rating-worst .timing-month-bar {
+      background: var(--bad);
+    }
+
+    .timing-month-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 100%;
+    }
+
+    .timing-chart-legend {
+      margin-top: var(--space-md);
+      padding-top: var(--space-sm);
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .timing-legend-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 4px;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+
+    .timing-legend-dot.best {
+      background: var(--good);
+    }
+
+    .timing-legend-dot.neutral {
+      background: var(--border-medium);
+    }
+
+    .timing-legend-dot.worst {
+      background: var(--bad);
+    }
+
+    .events-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      font-size: 0.76rem;
+    }
+
+    .event-chip {
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-alt);
+    }
+
+    .review-columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      font-size: 0.875rem;
+    }
+
+    @media (max-width: 720px) {
+      .review-columns {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .review-list {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .review-list li {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .review-list.pros li::before {
+      content: '+';
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: var(--green);
+    }
+    .review-list.cons li::before {
+      content: '−';
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: var(--red);
+    }
+
+    .reddit-snippets {
+      margin-top: var(--space-16);
+      max-height: 130px;
+      overflow: auto;
+      padding-right: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.8125rem;
+      line-height: 1.45;
+    }
+
+    .reddit-snippet {
+      border-radius: var(--radius-sm);
+      border: none;
+      border-left: 3px solid var(--accent);
+      background: var(--bg-alt);
+      padding: var(--space-12) var(--space-16);
+      margin-left: 0;
+    }
+
+    .reddit-snippet-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 2px;
+    }
+
+    .reddit-snippet-badge {
+      border-radius: var(--radius-pill);
+      padding: 2px 7px;
+      font-size: 0.7rem;
+    }
+
+    .reddit-snippet-badge.pos {
+      background: rgba(5, 150, 105, 0.15);
+      color: #047857;
+    }
+
+    .reddit-snippet-badge.neg {
+      background: rgba(220, 38, 38, 0.1);
+      color: #b91c1c;
+    }
+
+    .ai-card {
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .ai-card.enabled {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .sentiment-bar-wrap {
+      margin-top: var(--space-sm);
+      border-radius: var(--radius-md);
+      padding: var(--space-sm) var(--space-md);
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-alt);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .sentiment-bar {
+      position: relative;
+      height: 8px;
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+      background: linear-gradient(90deg, #059669, #10b981, #eab308, #f59e0b, #dc2626);
+    }
+
+    .sentiment-marker {
+      position: absolute;
+      top: -2px;
+      width: 2px;
+      height: 12px;
+      background: var(--text-main);
+      box-shadow: 0 0 0 2px var(--bg-card);
+    }
+
+    .sentiment-label-row {
+      margin-top: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .muted {
+      color: var(--text-soft);
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .error-banner {
+      margin-top: 0;
+      border-radius: var(--radius-sm);
+      padding: 0 16px;
+      background: #FEF2F2;
+      border: none;
+      border-left: 4px solid var(--red);
+      color: var(--red);
+      font-size: 0.875rem;
+      font-weight: 500;
+      line-height: 1.5;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, opacity 0.3s ease, margin 0.25s ease, padding 0.25s ease;
+    }
+
+    .error-banner.visible {
+      margin-top: var(--space-24);
+      padding: var(--space-16) 16px;
+      max-height: 150px;
+      opacity: 1;
+    }
+
+    /* Ask AI — right-side panel */
+    .ask-ai-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      z-index: 100;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+    }
+    .ask-ai-overlay.open { opacity: 1; visibility: visible; }
+    .ask-ai-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(420px, 100vw);
+      height: 100vh;
+      background: var(--surface);
+      box-shadow: -8px 0 32px rgba(0,0,0,0.12);
+      z-index: 101;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-out;
+    }
+    .ask-ai-panel.open { transform: translateX(0); }
+    .ask-ai-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-24) var(--space-32);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .ask-ai-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--text-primary);
+    }
+    .ask-ai-close {
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 1.25rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s ease;
+    }
+    .ask-ai-close:hover { color: var(--text-primary); }
+    .ask-ai-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: var(--space-24);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-16);
+    }
+    .ask-ai-msg {
+      padding: var(--space-16);
+      border-radius: var(--radius-sm);
+      font-size: 0.9375rem;
+      line-height: 1.55;
+      max-width: 92%;
+      white-space: pre-wrap;
+    }
+    .ask-ai-msg.user {
+      align-self: flex-end;
+      background: var(--accent-light);
+      border-radius: var(--radius-sm) var(--radius-sm) 0 var(--radius-sm);
+      color: var(--text-primary);
+    }
+    .ask-ai-msg.assistant {
+      align-self: flex-start;
+      display: flex;
+      gap: var(--space-12);
+      align-items: flex-start;
+      background: #F2F1EE;
+      color: var(--text-primary);
+    }
+    .ask-ai-msg.assistant::before {
+      content: 'BYB';
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      font-family: var(--font-sans);
+    }
+    .ask-ai-input-area {
+      padding: var(--space-24);
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .ask-ai-input-wrap {
+      display: flex;
+      gap: var(--space-12);
+      align-items: flex-end;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: var(--space-8);
+      background: var(--surface);
+    }
+    .ask-ai-input {
+      flex: 1;
+      min-height: 44px;
+      max-height: 120px;
+      border: none;
+      background: transparent;
+      padding: 8px 12px;
+      font-size: 0.9375rem;
+      color: var(--text-primary);
+      resize: none;
+      font-family: inherit;
+      outline: none;
+    }
+    .ask-ai-input::placeholder { color: var(--text-secondary); }
+    .ask-ai-send {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.15s ease;
+    }
+    .ask-ai-send:hover { opacity: 0.9; }
+    .ask-ai-send:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    @media (max-width: 768px) {
+      .ask-ai-panel {
+        top: auto;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 85vh;
+        border-radius: 12px 12px 0 0;
+        transform: translateY(100%);
+      }
+      .ask-ai-panel.open { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero header band -->
+  <div class="site-hero" style="padding-bottom: 0;">
+    <div class="hero-deco"></div>
+    <div class="site-hero-inner">
+      <header>
+        <div class="brand">
+          <div class="brand-row">
+            <h1 class="brand-name"><em class="car-emoji" aria-hidden="true">🚗</em>Before You Buy</h1>
+            <span class="pill">Cars · MSRP Intelligence</span>
+          </div>
+          <p class="brand-subtitle">Get the real price — and the full cost — before you walk into a dealership.</p>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span class="hero-stat-value">Live</span>
+              <span class="hero-stat-label">Market Data</span>
+            </div>
+            <div class="hero-divider"></div>
+            <div class="hero-stat">
+              <span class="hero-stat-value">5-yr</span>
+              <span class="hero-stat-label">True Cost</span>
+            </div>
+            <div class="hero-divider"></div>
+            <div class="hero-stat">
+              <span class="hero-stat-value">AI</span>
+              <span class="hero-stat-label">Deal Analysis</span>
+            </div>
+            <div class="hero-divider"></div>
+            <div class="hero-stat">
+              <span class="hero-stat-value">Free</span>
+              <span class="hero-stat-label">Always</span>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+    <!-- wave separator -->
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 56" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 56 L0 28 Q360 0 720 28 Q1080 56 1440 28 L1440 56 Z" fill="#F4F3F0"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="app-shell">
+    <main>
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">Car Check</h2>
+            <p class="card-subtitle">Choose new or used, then enter the vehicle details and your quoted price.</p>
+          </div>
+        </div>
+
+        <form id="query-form" onsubmit="return false;">
+          <div class="vehicle-condition-row">
+            <span class="vehicle-condition-label">Vehicle type</span>
+            <div class="segmented-toggle" id="vehicle-condition-toggle" data-active="new">
+              <span class="sliding-pill"></span>
+              <button type="button" data-condition="new" class="active">New</button>
+              <button type="button" data-condition="used">Used</button>
+            </div>
+          </div>
+          <div class="search-form">
+            <div class="field field-year">
+              <label for="year-input">Year</label>
+              <select id="year-input"></select>
+            </div>
+            <div class="field field-make">
+              <label for="make-input">Make</label>
+              <select id="make-input">
+                <option value="">Select make</option>
+              </select>
+            </div>
+            <div class="field field-model">
+              <label for="model-input">Model</label>
+              <select id="model-input" disabled>
+                <option value="">Select model</option>
+              </select>
+            </div>
+            <div class="field field-vin" id="vin-field-wrap">
+              <label for="vin-input">VIN (optional)</label>
+              <input id="vin-input" type="text" maxlength="17" placeholder="17-character VIN" autocomplete="off" />
+            </div>
+            <div class="field field-price">
+              <label for="price-input">Price (USD)</label>
+              <input id="price-input" type="number" min="0" step="100" placeholder="Enter Price" />
+            </div>
+            <div class="field field-years">
+              <label for="years-input">Years</label>
+              <input id="years-input" type="number" min="1" max="20" step="1" placeholder="Enter years" />
+            </div>
+          </div>
+        </form>
+
+        <div class="example-label">Example cars</div>
+        <div class="example-chips-row" id="examples-row">
+          <button class="btn-secondary" data-example="camry">Toyota Camry SE · $28,000</button>
+          <button class="btn-secondary" data-example="rav4">Toyota RAV4 XLE · $34,000</button>
+          <button class="btn-secondary" data-example="f150">Ford F-150 XLT · $52,000</button>
+          <button class="btn-secondary" data-example="tesla3">Tesla Model 3 RWD · $40,000</button>
+          <button class="btn-secondary" data-example="pilot">Honda Pilot EX-L · $46,000</button>
+          <button class="btn-secondary" data-example="odyssey">Honda Odyssey EX-L · $42,000</button>
+        </div>
+
+        <div class="analyze-actions">
+          <button class="btn-primary btn-analyze" id="analyze-btn">
+            <span class="btn-spinner" aria-hidden="true"></span>
+            <span class="btn-text">Run analysis</span>
+          </button>
+          <button class="btn-ai-analyze" id="ask-ai-btn">
+            <span class="ai-icon">💬</span>
+            <span>Ask AI</span>
+          </button>
+        </div>
+
+        <div class="grid-2" id="summary-results" style="display:none;">
+          <div class="card-section">
+            <div class="card-title">Retail price</div>
+            <div class="price-bar-wrap">
+              <div class="price-bar-labels">
+                <span>Low end</span>
+                <span>High end</span>
+              </div>
+              <div class="price-bar" id="price-bar">
+                <div class="price-marker" id="price-marker" style="left: 50%;">
+                  <div class="price-marker-dot"></div>
+                </div>
+              </div>
+              <div class="price-legend">
+                <span id="price-range-label">No live market range yet</span>
+                <span id="price-raw-label">Your quote: —</span>
+              </div>
+              <div class="price-verdict-row">
+                <div id="price-verdict-badge" class="badge badge-unknown">
+                  <span id="price-verdict-icon">⚪</span>
+                  <span id="price-verdict-text">Select a vehicle</span>
+                </div>
+                <div class="price-numbers">
+                  <span id="price-low-label">Low: –</span>
+                  <span id="price-mid-label">Mid: –</span>
+                  <span id="price-high-label">High: –</span>
+                </div>
+              </div>
+              <div class="muted" id="price-percentile-text" style="margin-top:4px;"></div>
+            </div>
+          </div>
+          <div class="grid-divider" aria-hidden="true"></div>
+          <div class="card-section">
+            <div class="card-title">True cost (5 yr)</div>
+            <div class="true-cost-box">
+              <div class="true-cost-hero">
+                <div class="true-cost-hero-value" id="true-cost-value">$0</div>
+                <div class="true-cost-hero-label" id="true-cost-label">Total cost over 5 years</div>
+              </div>
+              <div class="true-cost-bar-wrap">
+                <div class="true-cost-bar" id="true-cost-bar">
+                  <div class="true-cost-bar-segment purchase" id="true-cost-bar-purchase" style="flex-grow: 1;"></div>
+                  <div class="true-cost-bar-segment costs" id="true-cost-bar-costs" style="flex-grow: 1;"></div>
+                </div>
+                <div class="true-cost-bar-legend">
+                  <span><span class="dot purchase"></span> <span id="true-cost-legend-purchase">Purchase $0</span></span>
+                  <span><span class="dot costs"></span> <span id="true-cost-legend-costs">Costs $0</span></span>
+                </div>
+              </div>
+              <div class="true-cost-metrics">
+                <div class="true-cost-metric">
+                  <div class="true-cost-metric-label">Purchase</div>
+                  <div class="true-cost-metric-value" id="purchase-price-label">$0</div>
+                </div>
+                <div class="true-cost-metric">
+                  <div class="true-cost-metric-label">Costs</div>
+                  <div class="true-cost-metric-value" id="costs-total-label">$0</div>
+                </div>
+                <div class="true-cost-metric">
+                  <div class="true-cost-metric-label">Resale value</div>
+                  <div class="true-cost-metric-value" id="value-after-label">$0</div>
+                </div>
+              </div>
+              <div class="true-cost-note" id="true-cost-note">
+                Buy price plus running costs, minus the amount you may recover when you sell.
+              </div>
+              <div class="true-cost-formula" id="true-cost-formula">
+                Purchase $0 + Costs $0 - Resale value $0 = $0
+              </div>
+              <div class="true-cost-breakdown">
+                <div class="true-cost-breakdown-title">Cost breakdown</div>
+                <div class="cost-list" id="cost-list"></div>
+              </div>
+              <div class="collapsible" id="assumptions-panel">
+                <div class="collapsible-header">
+                  <span>Customize assumptions</span>
+                  <span id="assumptions-toggle-icon">▾</span>
+                </div>
+                <div class="collapsible-body">
+                  <div class="assumptions-grid" id="assumptions-grid"></div>
+                  <button class="btn-secondary" id="recalc-btn">
+                    <span>✏️ Recalculate with your values</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="error-banner" class="error-banner"></div>
+      </section>
+
+      <!-- Insights: timing, reviews, then gotchas at bottom (hidden until first analysis) -->
+      <section class="stacked" id="insights-column" style="display:none;">
+        <div class="card">
+          <div class="card-header">
+            <div class="insight-card-header">
+              <div class="insight-badge timing" aria-hidden="true"></div>
+              <div>
+                <div class="card-title">Timing Advisor</div>
+                <div class="card-subtitle">Is now a good moment to purchase?</div>
+              </div>
+            </div>
+          </div>
+          <div class="timing-body">
+            <div class="timing-pill neutral" id="timing-pill">
+              <span id="timing-pill-text">Run an analysis to see timing insights.</span>
+            </div>
+            <div id="timing-confidence" class="muted" style="margin-top: 6px;"></div>
+            <div class="timing-best-price-box" id="timing-best-price-box">
+              <div class="timing-best-price-label">Lowest price month — your potential savings</div>
+              <div class="timing-best-price-value" id="timing-best-month-summary"></div>
+            </div>
+            <div class="timing-month-chart-wrap" id="timing-month-chart-wrap">
+              <div class="timing-chart-box">
+                <div class="timing-chart-title">Expected price by month</div>
+                <div class="timing-chart-area">
+                  <div class="timing-chart-yaxis" id="timing-chart-yaxis"></div>
+                  <div class="timing-chart-bars-wrap">
+                    <div class="timing-month-chart" id="timing-month-chart"></div>
+                  </div>
+                </div>
+                <div class="timing-chart-legend muted">Bar height = price. Hover a bar for exact amount.</div>
+              </div>
+            </div>
+            <div class="events-row" id="timing-events"></div>
+            <div id="timing-tips" class="muted"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="insight-card-header">
+              <div class="insight-badge reviews" aria-hidden="true"></div>
+              <div>
+                <div class="card-title">Owner Reviews & Safety</div>
+                <div class="card-subtitle">Blend of curated reviews, Reddit chatter, and safety data.</div>
+              </div>
+            </div>
+          </div>
+          <div class="sentiment-bar-wrap">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span>Sentiment score</span>
+              <span id="sentiment-score-label" style="font-size:0.875rem;font-weight:600;color:var(--text-main);">–</span>
+            </div>
+            <div class="sentiment-bar" id="sentiment-bar">
+              <div class="sentiment-marker" id="sentiment-marker" style="left: 50%;"></div>
+            </div>
+            <div class="sentiment-label-row">
+              <span class="muted">1 = Very negative · 5 = Very positive</span>
+              <span id="sentiment-label" style="font-size:0.875rem;font-weight:500;color:var(--text-main);">Awaiting analysis</span>
+            </div>
+          </div>
+
+          <div class="review-columns" style="margin-top:8px;">
+            <div>
+              <div style="font-size:0.8rem;font-weight:600;margin-bottom:2px;">Pros</div>
+              <ul class="review-list pros" id="pros-list"></ul>
+            </div>
+            <div>
+              <div style="font-size:0.8rem;font-weight:600;margin-bottom:2px;">Cons</div>
+              <ul class="review-list cons" id="cons-list"></ul>
+            </div>
+          </div>
+
+          <div class="reddit-snippets" id="reddit-snippets"></div>
+
+          <div id="nhtsa-safety-section" class="nhtsa-safety-section" style="display:none;">
+            <div style="font-size:0.8rem;font-weight:600;margin-bottom:8px;">NHTSA Safety Data</div>
+            <div class="nhtsa-safety-grid" id="nhtsa-safety-grid"></div>
+            <div id="nhtsa-recalls-wrap" style="margin-top:10px;display:none;">
+              <div style="font-size:0.75rem;font-weight:600;margin-bottom:4px;">Open Recalls</div>
+              <ul class="nhtsa-recalls-list" id="nhtsa-recalls-list"></ul>
+            </div>
+            <div id="nhtsa-complaints-wrap" style="margin-top:10px;display:none;">
+              <div style="font-size:0.75rem;font-weight:600;margin-bottom:4px;">Top complaint areas</div>
+              <ul class="nhtsa-complaints-list" id="nhtsa-complaints-list"></ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="insight-card-header">
+              <div class="insight-badge gotchas" aria-hidden="true"></div>
+              <div>
+                <div class="card-title">Gotchas & Junk Fees</div>
+                <div class="card-subtitle">Spot extra line items before you sign.</div>
+              </div>
+            </div>
+          </div>
+          <div class="gotcha-list" id="gotcha-list"></div>
+          <div class="muted" id="gotcha-tip" style="margin-top:6px;"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="insight-card-header">
+              <div class="insight-badge tips" aria-hidden="true"></div>
+              <div>
+                <div class="card-title">Negotiation Tips</div>
+                <div class="card-subtitle">Smart strategies to get a better deal.</div>
+              </div>
+            </div>
+          </div>
+          <div class="negotiation-tips-list" id="negotiation-tips-list"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Ask AI — right-side chatbot panel (Kayak-style) -->
+  <div class="ask-ai-overlay" id="ask-ai-overlay" aria-hidden="true"></div>
+  <div class="ask-ai-panel" id="ask-ai-panel" role="dialog" aria-label="Ask AI chatbot">
+    <div class="ask-ai-header">
+      <h2 class="ask-ai-title">Ask AI</h2>
+      <button type="button" class="ask-ai-close" id="ask-ai-close" aria-label="Close">×</button>
+    </div>
+    <div class="ask-ai-messages" id="ask-ai-messages"></div>
+    <div class="ask-ai-input-area">
+      <div class="ask-ai-input-wrap">
+        <textarea class="ask-ai-input" id="ask-ai-input" placeholder="Ask anything about this car…" rows="2"></textarea>
+        <button type="button" class="ask-ai-send" id="ask-ai-send" aria-label="Send"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const yearInput = document.getElementById('year-input');
+    const makeInput = document.getElementById('make-input');
+    const modelInput = document.getElementById('model-input');
+    const vehicleConditionToggle = document.getElementById('vehicle-condition-toggle');
+    const vinInput = document.getElementById('vin-input');
+    const priceInput = document.getElementById('price-input');
+    const yearsInput = document.getElementById('years-input');
+
+    const analyzeBtn = document.getElementById('analyze-btn');
+    const askAiBtn = document.getElementById('ask-ai-btn');
+    const errorBanner = document.getElementById('error-banner');
+    let lastAnalysisData = null;
+
+    const priceMarker = document.getElementById('price-marker');
+    const priceRangeLabel = document.getElementById('price-range-label');
+    const priceRawLabel = document.getElementById('price-raw-label');
+    const priceLowLabel = document.getElementById('price-low-label');
+    const priceMidLabel = document.getElementById('price-mid-label');
+    const priceHighLabel = document.getElementById('price-high-label');
+    const priceVerdictBadge = document.getElementById('price-verdict-badge');
+    const priceVerdictIcon = document.getElementById('price-verdict-icon');
+    const priceVerdictText = document.getElementById('price-verdict-text');
+
+    const trueCostLabel = document.getElementById('true-cost-label');
+    const trueCostValue = document.getElementById('true-cost-value');
+    const purchasePriceLabel = document.getElementById('purchase-price-label');
+    const costsTotalLabel = document.getElementById('costs-total-label');
+    const valueAfterLabel = document.getElementById('value-after-label');
+    const trueCostNote = document.getElementById('true-cost-note');
+    const trueCostFormula = document.getElementById('true-cost-formula');
+    const trueCostBarPurchase = document.getElementById('true-cost-bar-purchase');
+    const trueCostBarCosts = document.getElementById('true-cost-bar-costs');
+    const trueCostLegendPurchase = document.getElementById('true-cost-legend-purchase');
+    const trueCostLegendCosts = document.getElementById('true-cost-legend-costs');
+    const costList = document.getElementById('cost-list');
+    const assumptionsPanel = document.getElementById('assumptions-panel');
+    const assumptionsGrid = document.getElementById('assumptions-grid');
+    const recalcBtn = document.getElementById('recalc-btn');
+
+    const gotchaList = document.getElementById('gotcha-list');
+    const gotchaTip = document.getElementById('gotcha-tip');
+
+    const timingPill = document.getElementById('timing-pill');
+    const timingPillText = document.getElementById('timing-pill-text');
+    const timingConfidence = document.getElementById('timing-confidence');
+    const timingEvents = document.getElementById('timing-events');
+    const timingTips = document.getElementById('timing-tips');
+
+    const sentimentBar = document.getElementById('sentiment-bar');
+    const sentimentMarker = document.getElementById('sentiment-marker');
+    const sentimentScoreLabel = document.getElementById('sentiment-score-label');
+    const sentimentLabel = document.getElementById('sentiment-label');
+    const prosList = document.getElementById('pros-list');
+    const consList = document.getElementById('cons-list');
+    const redditSnippets = document.getElementById('reddit-snippets');
+
+    const examplesRow = document.getElementById('examples-row');
+    const pricePercentileText = document.getElementById('price-percentile-text');
+    const summaryResults = document.getElementById('summary-results');
+    const insightsColumn = document.getElementById('insights-column');
+
+    let askAiMessages = [];
+
+    const VEHICLE_EXAMPLES = {
+      used: [
+        { key: 'camry', year: '2023', make: 'Toyota', model: 'Camry', price: '28000', years: '5', label: 'Toyota Camry SE · $28,000' },
+        { key: 'rav4', year: '2023', make: 'Toyota', model: 'RAV4', price: '34000', years: '5', label: 'Toyota RAV4 XLE · $34,000' },
+        { key: 'f150', year: '2023', make: 'Ford', model: 'F-150', price: '52000', years: '5', label: 'Ford F-150 XLT · $52,000' },
+        { key: 'tesla3', year: '2024', make: 'Tesla', model: 'Model 3', price: '40000', years: '5', label: 'Tesla Model 3 RWD · $40,000' },
+        { key: 'pilot', year: '2023', make: 'Honda', model: 'Pilot', price: '46000', years: '7', label: 'Honda Pilot EX-L · $46,000' },
+        { key: 'odyssey', year: '2023', make: 'Honda', model: 'Odyssey', price: '42000', years: '7', label: 'Honda Odyssey EX-L · $42,000' }
+      ],
+      new: [
+        { key: 'camry-new', year: '2025', make: 'Toyota', model: 'Camry', price: '32900', years: '5', label: 'New Toyota Camry · $32,900' },
+        { key: 'rav4-new', year: '2025', make: 'Toyota', model: 'RAV4', price: '35500', years: '5', label: 'New Toyota RAV4 · $35,500' },
+        { key: 'f150-new', year: '2025', make: 'Ford', model: 'F-150', price: '58900', years: '5', label: 'New Ford F-150 · $58,900' },
+        { key: 'tesla3-new', year: '2025', make: 'Tesla', model: 'Model 3', price: '42900', years: '5', label: 'New Tesla Model 3 · $42,900' },
+        { key: 'pilot-new', year: '2025', make: 'Honda', model: 'Pilot', price: '49900', years: '7', label: 'New Honda Pilot · $49,900' },
+        { key: 'odyssey-new', year: '2025', make: 'Honda', model: 'Odyssey', price: '45800', years: '7', label: 'New Honda Odyssey · $45,800' }
+      ]
+    };
+
+    let activeVehicleCondition = 'new';
+    let carMakesModels = {};
+    const liveModelOptionsCache = new Map();
+
+    function renderExamples() {
+      if (!examplesRow) return;
+      const examples = VEHICLE_EXAMPLES[activeVehicleCondition] || VEHICLE_EXAMPLES.used;
+      examplesRow.innerHTML = '';
+      examples.forEach((example) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn-secondary';
+        btn.type = 'button';
+        btn.dataset.example = example.key;
+        btn.textContent = example.label;
+        examplesRow.appendChild(btn);
+      });
+    }
+
+    function setVehicleCondition(condition) {
+      activeVehicleCondition = condition === 'new' ? 'new' : 'used';
+      if (vehicleConditionToggle) {
+        vehicleConditionToggle.setAttribute('data-active', activeVehicleCondition);
+        vehicleConditionToggle.querySelectorAll('button[data-condition]').forEach((btn) => {
+          btn.classList.toggle('active', btn.dataset.condition === activeVehicleCondition);
+        });
+      }
+      const form = document.getElementById('query-form');
+      if (form) {
+        form.classList.toggle('with-vin', activeVehicleCondition === 'used');
+      }
+      if (vinInput && activeVehicleCondition === 'new') {
+        vinInput.value = '';
+      }
+      populateYearDropdown();
+      renderExamples();
+      if (makeInput.value.trim()) {
+        updateModelDropdown();
+      }
+    }
+
+    function populateYearDropdown() {
+      const currentYear = new Date().getFullYear();
+      const previousValue = yearInput.value;
+      const minYear = activeVehicleCondition === 'new' ? 2025 : currentYear - 15;
+      yearInput.innerHTML = '';
+      for (let y = currentYear; y >= minYear; y--) {
+        const opt = document.createElement('option');
+        opt.value = String(y);
+        opt.textContent = String(y);
+        yearInput.appendChild(opt);
+      }
+      if (previousValue && Array.from(yearInput.options).some((opt) => opt.value === previousValue)) {
+        yearInput.value = previousValue;
+      } else {
+        yearInput.value = String(currentYear);
+      }
+    }
+
+    function setModelOptions(models, placeholderText) {
+      const placeholder = placeholderText || 'Select model';
+      modelInput.innerHTML = '';
+      const first = document.createElement('option');
+      first.value = '';
+      first.textContent = placeholder;
+      modelInput.appendChild(first);
+      modelInput.disabled = !models.length;
+      models.forEach((modelName) => {
+        const opt = document.createElement('option');
+        opt.value = modelName;
+        opt.textContent = modelName;
+        modelInput.appendChild(opt);
+      });
+    }
+
+    async function updateModelDropdown(preferredModel) {
+      const make = makeInput.value.trim();
+      const year = yearInput.value.trim();
+      const selectedModel = (preferredModel || modelInput.value || '').trim();
+      if (!make) {
+        setModelOptions([], 'Select make first');
+        return;
+      }
+
+      const catalogModels = Array.isArray(carMakesModels[make]) ? carMakesModels[make] : [];
+      if (!year) {
+        setModelOptions(catalogModels, 'Select model');
+        if (selectedModel && catalogModels.includes(selectedModel)) {
+          modelInput.value = selectedModel;
+        }
+        return;
+      }
+
+      const cacheKey = `${activeVehicleCondition}::${year}::${make}`;
+      setModelOptions([], 'Loading models...');
+      try {
+        let models = liveModelOptionsCache.get(cacheKey);
+        if (!models) {
+          const res = await fetch(`/api/vehicle-options?make=${encodeURIComponent(make)}&year=${encodeURIComponent(year)}&vehicle_condition=${encodeURIComponent(activeVehicleCondition)}&live_only=1`);
+          const data = await res.json();
+          if (!res.ok) {
+            throw new Error(data.error || 'Failed to load live models.');
+          }
+          models = Array.isArray(data.models) ? data.models : [];
+          liveModelOptionsCache.set(cacheKey, models);
+        }
+
+        const mergedModels = models.length
+          ? [...models, ...catalogModels.filter((modelName) => !models.includes(modelName))]
+          : catalogModels;
+
+        setModelOptions(mergedModels, mergedModels.length ? 'Select model' : `No ${make} models found`);
+        if (selectedModel && mergedModels.includes(selectedModel)) {
+          modelInput.value = selectedModel;
+        }
+      } catch (err) {
+        console.warn('[BYB] Failed to load live model options, falling back to catalog models.', err);
+        setModelOptions(catalogModels, catalogModels.length ? 'Select model' : 'Unable to load models');
+        if (selectedModel && catalogModels.includes(selectedModel)) {
+          modelInput.value = selectedModel;
+        }
+      }
+    }
+
+    function populateMakeDropdown() {
+      makeInput.innerHTML = '<option value="">Select make</option>';
+      Object.keys(carMakesModels).sort().forEach((make) => {
+        const opt = document.createElement('option');
+        opt.value = make;
+        opt.textContent = make;
+        makeInput.appendChild(opt);
+      });
+    }
+
+    async function loadVehicleOptions() {
+      try {
+        const res = await fetch('/api/vehicle-options');
+        const data = await res.json();
+        if (res.ok && data.makes_models && Object.keys(data.makes_models).length) {
+          carMakesModels = data.makes_models;
+        }
+      } catch (err) {
+        console.warn('[BYB] Failed to load Auto.dev vehicle options.', err);
+      }
+      populateMakeDropdown();
+    }
+
+    populateYearDropdown();
+    loadVehicleOptions();
+    yearInput.addEventListener('change', () => updateModelDropdown());
+    makeInput.addEventListener('change', () => updateModelDropdown());
+    if (vehicleConditionToggle) {
+      vehicleConditionToggle.addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-condition]');
+        if (!btn) return;
+        setVehicleCondition(btn.dataset.condition);
+      });
+    }
+    setVehicleCondition(activeVehicleCondition);
+
+    const currency = (value) => {
+      if (value == null || isNaN(value)) return '$0';
+      return '$' + Number(value).toLocaleString(undefined, { maximumFractionDigits: 0 });
+    };
+    const clamp = (val, min, max) => Math.min(max, Math.max(min, val));
+
+    function setError(msg) {
+      if (!msg) {
+        errorBanner.classList.remove('visible');
+        errorBanner.textContent = '';
+        return;
+      }
+      errorBanner.textContent = msg;
+      errorBanner.classList.add('visible');
+    }
+
+    function setPriceAnalysis(data) {
+      if (!data || !data.ranges) {
+        const quote = data && Number.isFinite(Number(data.price)) ? currency(data.price) : '—';
+        priceRangeLabel.textContent = 'No live market data found';
+        priceRawLabel.textContent = `Your quote: ${quote}`;
+        priceLowLabel.textContent = 'Low: unavailable';
+        priceMidLabel.textContent = 'Mid: unavailable';
+        priceHighLabel.textContent = 'High: unavailable';
+        priceVerdictText.textContent = 'No live market data';
+        priceVerdictIcon.textContent = '⚪';
+        priceVerdictBadge.className = 'badge badge-unknown';
+        priceMarker.style.left = '50%';
+        pricePercentileText.textContent = 'This usually means Auto.dev has no priced retail listings for the exact year, make, and model you selected.';
+        return;
+      }
+
+      const { low, mid, high } = data.ranges;
+      const p = data.price;
+
+      priceRangeLabel.textContent = `${currency(low)} – ${currency(high)}`;
+      priceRawLabel.textContent = `Your quote: ${currency(p)}`;
+      priceLowLabel.textContent = `Low: ${currency(low)}`;
+      priceMidLabel.textContent = `Mid: ${currency(mid)}`;
+      priceHighLabel.textContent = `High: ${currency(high)}`;
+
+      const span = Math.max(high - low, 1);
+      const pct = clamp((p - low) / span, 0, 1);
+      priceMarker.style.left = `${pct * 100}%`;
+
+      priceVerdictText.textContent = data.verdict || 'Unknown';
+      priceVerdictIcon.textContent = data.verdict_icon || '⚪';
+      let cls = 'badge';
+      switch (data.verdict_color) {
+        case 'great':
+          cls += ' badge-great';
+          break;
+        case 'fair':
+          cls += ' badge-fair';
+          break;
+        case 'above':
+          cls += ' badge-above';
+          break;
+        case 'overpriced':
+          cls += ' badge-overpriced';
+          break;
+        case 'unknown':
+          cls += ' badge-unknown';
+          break;
+        default:
+          cls += ' badge-fair';
+      }
+      priceVerdictBadge.className = cls;
+
+      if (typeof data.percentile_within_range === 'number') {
+        const pctWithin = clamp(data.percentile_within_range, 0, 1);
+        const asPct = Math.round(pctWithin * 100);
+        let level;
+        if (asPct <= 15) level = 'bottom of the typical retail range';
+        else if (asPct <= 40) level = 'lower half of typical retail';
+        else if (asPct <= 60) level = 'around the middle of typical retail';
+        else if (asPct <= 85) level = 'upper half of typical retail';
+        else level = 'very top of typical retail';
+        pricePercentileText.textContent = `Your quote is at about the ${asPct}th percentile for ${data.subcategory || 'this car type'} — ${level}.`;
+      } else {
+        pricePercentileText.textContent = '';
+      }
+    }
+
+    function setTrueCost(data, years) {
+      if (!data) return;
+      trueCostLabel.textContent = data.summary_style === 'net_gain' ? `Net gain over ${years} years` : `Total cost over ${years} years`;
+      trueCostValue.textContent = currency(Math.abs(data.true_cost));
+      trueCostValue.classList.toggle('net-gain', data.summary_style === 'net_gain');
+
+      const purchase = Number(data.purchase_price) || 0;
+      const costs = Number(data.total_hidden_costs) || 0;
+      const total = purchase + costs || 1;
+      if (trueCostBarPurchase && trueCostBarCosts) {
+        trueCostBarPurchase.style.flexGrow = purchase;
+        trueCostBarCosts.style.flexGrow = costs;
+      }
+      if (trueCostLegendPurchase) trueCostLegendPurchase.textContent = `Purchase ${currency(purchase)}`;
+      if (trueCostLegendCosts) trueCostLegendCosts.textContent = `Costs ${currency(costs)}`;
+      if (purchasePriceLabel) purchasePriceLabel.textContent = currency(purchase);
+      if (costsTotalLabel) costsTotalLabel.textContent = currency(costs);
+      valueAfterLabel.textContent = currency(data.value_after_years);
+      if (trueCostNote) {
+        const ownershipOutcome = data.summary_style === 'net_gain'
+          ? `you would come out ahead by about ${currency(Math.abs(data.true_cost))}`
+          : `you would spend about ${currency(data.true_cost)} to own it`;
+        trueCostNote.textContent = `If you sell after ${years} year${years === 1 ? '' : 's'}, ${ownershipOutcome}.`;
+      }
+      if (trueCostFormula) {
+        trueCostFormula.textContent = `Purchase ${currency(purchase)} + Costs ${currency(costs)} - Resale value ${currency(data.value_after_years)} = ${currency(data.true_cost)}`;
+      }
+
+      costList.innerHTML = '';
+      const items = [...(data.cost_items || [])].sort((a, b) => Math.abs((b.amount || 0)) - Math.abs((a.amount || 0)));
+      const maxAmount = items.reduce((m, x) => Math.max(m, Math.abs(x.amount || 0)), 0) || 1;
+
+      for (const item of items) {
+        const row = document.createElement('div');
+        row.className = 'cost-item-row';
+
+        const header = document.createElement('div');
+        header.className = 'cost-item-row-header';
+
+        const name = document.createElement('div');
+        name.className = 'cost-item-name';
+        name.textContent = item.is_appreciation ? `📈 ${item.name} (Appreciation)` : item.name;
+
+        const amount = document.createElement('div');
+        amount.className = 'cost-item-amount';
+        if (item.is_appreciation) {
+          amount.classList.add('appreciation');
+          amount.textContent = `+$${Math.round(Math.abs(item.amount)).toLocaleString()}`;
+        } else {
+          amount.textContent = currency(item.amount);
+        }
+
+        header.appendChild(name);
+        header.appendChild(amount);
+
+        const detail = document.createElement('div');
+        detail.className = 'cost-item-detail';
+        const annualText = item.annual_amount ? `${currency(item.annual_amount)} / year` : '';
+        const basisText = item.basis || '';
+        detail.textContent = [annualText, basisText].filter(Boolean).join(' · ');
+
+        const bar = document.createElement('div');
+        bar.className = 'cost-item-bar';
+        const fill = document.createElement('div');
+        fill.className = 'cost-item-bar-fill';
+        if (item.is_appreciation) fill.classList.add('appreciation');
+        const pct = clamp(Math.abs(item.amount) / maxAmount, 0.05, 1);
+        fill.style.transform = `scaleX(${pct})`;
+        bar.appendChild(fill);
+
+        const chipRow = document.createElement('div');
+        chipRow.className = 'chip-row';
+
+        const conf = document.createElement('span');
+        conf.className = 'chip';
+        if (item.confidence === 'high') conf.classList.add('chip-high');
+        else if (item.confidence === 'medium') conf.classList.add('chip-medium');
+        else conf.classList.add('chip-low');
+        conf.textContent = item.confidence ? `● ${item.confidence[0].toUpperCase()}${item.confidence.slice(1)}` : '●';
+        chipRow.appendChild(conf);
+
+        if (item.is_live) {
+          const live = document.createElement('span');
+          live.className = 'chip chip-live';
+          live.textContent = '⚡ LIVE';
+          chipRow.appendChild(live);
+        }
+
+        if (item.is_override) {
+          const ov = document.createElement('span');
+          ov.className = 'chip chip-override';
+          ov.textContent = '✏️ YOUR VALUE';
+          chipRow.appendChild(ov);
+        }
+
+        if (item.source) {
+          const src = document.createElement('span');
+          src.className = 'chip chip-source';
+          src.innerHTML = `ⓘ ${item.source}`;
+          const tooltip = document.createElement('div');
+          tooltip.className = 'tooltip';
+          tooltip.innerHTML = `
+            <div class="tooltip-title">${item.source} · ${item.source_year || ''}</div>
+            <div class="tooltip-body">
+              <div>${item.source_note || ''}</div>
+              ${item.source_url ? `<div style="margin-top:4px;"><a href="${item.source_url}" target="_blank" style="color:var(--accent);text-decoration:none;">Open source →</a></div>` : ''}
+            </div>
+          `;
+          src.appendChild(tooltip);
+          chipRow.appendChild(src);
+        }
+
+        row.appendChild(header);
+        row.appendChild(detail);
+        row.appendChild(bar);
+        row.appendChild(chipRow);
+        costList.appendChild(row);
+      }
+    }
+
+    function setAssumptions(overrides) {
+      const assumptionLabels = {
+        annual_fuel_cost: 'Annual fuel cost',
+        annual_charging_cost: 'Annual charging cost',
+        insurance_rate_pct: 'Insurance rate (%)',
+        registration: 'Registration / year',
+        maintenance: 'Maintenance / year',
+        depreciation_pct: 'Depreciation / year (%)'
+      };
+      assumptionsGrid.innerHTML = '';
+      if (!overrides) return;
+      for (const [key, value] of Object.entries(overrides)) {
+        const wrap = document.createElement('div');
+        wrap.className = 'assumption-field';
+        const label = document.createElement('label');
+        label.textContent = assumptionLabels[key] || key.replace(/_/g, ' ');
+        const input = document.createElement('input');
+        input.type = 'number';
+        input.step = '0.01';
+        input.value = value;
+        input.dataset.key = key;
+        wrap.appendChild(label);
+        wrap.appendChild(input);
+        assumptionsGrid.appendChild(wrap);
+      }
+    }
+
+    function setGotchas(data) {
+      gotchaList.innerHTML = '';
+      gotchaTip.textContent = '';
+      if (!data) return;
+      const bySeverity = data.by_severity || {};
+      const order = ['high', 'medium', 'low'];
+      const icons = { high: '🔴', medium: '🟡', low: '⚪' };
+      for (const sev of order) {
+        const arr = bySeverity[sev] || [];
+        for (const g of arr) {
+          const item = document.createElement('div');
+          item.className = 'gotcha-item';
+          const header = document.createElement('div');
+          header.className = 'gotcha-header';
+          const title = document.createElement('div');
+          title.className = 'gotcha-title';
+          title.textContent = `${icons[sev] || ''} ${g.name}`;
+          const cost = document.createElement('div');
+          cost.className = 'gotcha-cost';
+          cost.textContent = g.typical_cost ? `${currency(g.typical_cost)} · ${g.negotiable ? 'Negotiable' : 'Fixed'}` : (g.negotiable ? 'Negotiable' : '');
+          header.appendChild(title);
+          header.appendChild(cost);
+          const desc = document.createElement('div');
+          desc.textContent = g.description || '';
+          desc.className = 'muted';
+          item.appendChild(header);
+          item.appendChild(desc);
+          gotchaList.appendChild(item);
+        }
+      }
+      if (data.tips) {
+        gotchaTip.textContent = data.tips;
+      }
+    }
+
+    function setNegotiationTips(tips) {
+      const list = document.getElementById('negotiation-tips-list');
+      if (!list) return;
+      list.innerHTML = '';
+      if (!tips || !Array.isArray(tips)) return;
+      tips.forEach((tip) => {
+        const item = document.createElement('div');
+        item.className = 'negotiation-tip-item';
+        item.textContent = typeof tip === 'string' ? tip : (tip.text || tip.tip || '');
+        list.appendChild(item);
+      });
+    }
+
+    function setTiming(data) {
+      if (!data) return;
+      timingEvents.innerHTML = '';
+      timingTips.textContent = data.tips || '';
+      if (timingConfidence) {
+        const sourceLabel = data.source === 'live_market' ? 'Live Auto.dev signal' : 'Seasonal heuristic';
+        const confidenceLabel = data.confidence_level
+          ? data.confidence_level.charAt(0).toUpperCase() + data.confidence_level.slice(1)
+          : 'Unknown';
+        const note = data.confidence_note ? ' · ' + data.confidence_note : '';
+        timingConfidence.textContent = `${sourceLabel} · ${confidenceLabel} confidence${note}`;
+      }
+
+      timingPill.className = 'timing-pill ' + (data.score || 'neutral');
+      timingPillText.textContent = data.assessment || 'Timing insights';
+
+      const bestPriceBox = document.getElementById('timing-best-price-box');
+      const bestSummaryEl = document.getElementById('timing-best-month-summary');
+      if (bestPriceBox && bestSummaryEl && data.best_month_for_deal != null && data.potential_savings != null && data.potential_savings > 0) {
+        const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        const name = monthNames[data.best_month_for_deal - 1];
+        bestSummaryEl.textContent = 'Buy in ' + name + ' — expected price ' + currency(data.best_estimated_price) + ' (potential savings ' + currency(data.potential_savings) + ')';
+        bestPriceBox.style.display = 'block';
+      } else {
+        if (bestPriceBox) bestPriceBox.style.display = 'none';
+      }
+
+      const chartEl = document.getElementById('timing-month-chart');
+      const chartWrap = document.getElementById('timing-month-chart-wrap');
+      const yAxisEl = document.getElementById('timing-chart-yaxis');
+      if (chartEl && chartWrap) {
+        chartEl.innerHTML = '';
+        if (yAxisEl) yAxisEl.innerHTML = '';
+        const monthChart = data.month_chart || [];
+        if (monthChart.length === 12) {
+          const prices = monthChart.map((m) => m.estimated_price);
+          const maxP = Math.max(...prices);
+          const minP = Math.min(...prices);
+          const range = Math.max(maxP - minP, 1);
+          const baseline = minP - range / 3;
+          const scaleMax = maxP;
+          const scaleRange = scaleMax - baseline;
+          if (yAxisEl && scaleRange > 0) {
+            const tickTop = scaleMax;
+            const tickMid = Math.round((maxP + minP) / 2 / 500) * 500;
+            const tickBot = minP;
+            yAxisEl.innerHTML = '<span>' + currency(tickTop) + '</span><span>' + currency(tickMid) + '</span><span>' + currency(tickBot) + '</span>';
+          }
+          monthChart.forEach((m) => {
+            const cell = document.createElement('div');
+            cell.className = 'timing-month-cell rating-' + m.rating;
+            const pct = scaleRange <= 0 ? 0.5 : (m.estimated_price - baseline) / scaleRange;
+            const barHeight = Math.min(100, Math.max(20, Math.round(pct * 100))) + '%';
+            cell.innerHTML =
+              '<div class="timing-month-bar-wrap">' +
+              '<div class="timing-month-bar" style="height:' + barHeight + '"></div>' +
+              '</div>' +
+              '<div class="timing-month-label">' + m.month_name + '</div>';
+            const barWrap = cell.querySelector('.timing-month-bar-wrap');
+            const listingInfo = m.listing_count ? ` · ${m.listing_count} listing${m.listing_count === 1 ? '' : 's'}` : '';
+            const tooltipText = m.month_name + ' · ' + currency(m.estimated_price) + listingInfo;
+            function showTooltip() {
+              const tt = document.getElementById('timing-hover-tooltip');
+              const wrap = barWrap || cell.querySelector('.timing-month-bar-wrap');
+              if (!tt || !wrap) return;
+              const rect = wrap.getBoundingClientRect();
+              tt.textContent = tooltipText;
+              tt.style.display = 'block';
+              tt.style.visibility = 'hidden';
+              const tr = tt.getBoundingClientRect();
+              tt.style.left = (rect.left + rect.width / 2 - tr.width / 2) + 'px';
+              tt.style.top = (rect.top - tr.height - 8) + 'px';
+              tt.style.visibility = 'visible';
+            }
+            function hideTooltip() {
+              const tt = document.getElementById('timing-hover-tooltip');
+              if (tt) tt.style.display = 'none';
+            }
+            if (barWrap) {
+              barWrap.addEventListener('mouseenter', showTooltip);
+              barWrap.addEventListener('mouseleave', hideTooltip);
+            }
+            cell.addEventListener('mouseenter', showTooltip);
+            cell.addEventListener('mouseleave', hideTooltip);
+            chartEl.appendChild(cell);
+          });
+          chartWrap.style.display = 'block';
+        } else {
+          chartWrap.style.display = 'none';
+        }
+      }
+
+      for (const ev of data.events || []) {
+        const chip = document.createElement('div');
+        chip.className = 'event-chip';
+        chip.textContent = ev.label || `${ev.name} · in ~${ev.days_until} days`;
+        timingEvents.appendChild(chip);
+      }
+    }
+
+    function setReviews(data) {
+      prosList.innerHTML = '';
+      consList.innerHTML = '';
+      redditSnippets.innerHTML = '';
+
+      if (!data) {
+        sentimentScoreLabel.textContent = '–';
+        sentimentLabel.textContent = 'Awaiting analysis';
+        sentimentMarker.style.left = '50%';
+        return;
+      }
+
+      const score = data.score || 3.5;
+      sentimentScoreLabel.textContent = `${score.toFixed(1)} / 5.0`;
+      sentimentLabel.textContent = data.sentiment_label || 'Mixed';
+      const pct = clamp((score - 1) / 4, 0, 1);
+      sentimentMarker.style.left = `${pct * 100}%`;
+
+      (data.static_pros || []).forEach((p) => {
+        const li = document.createElement('li');
+        li.textContent = p;
+        prosList.appendChild(li);
+      });
+      (data.static_cons || []).forEach((c) => {
+        const li = document.createElement('li');
+        li.textContent = c;
+        consList.appendChild(li);
+      });
+
+      const reddit = data.reddit || {};
+      (reddit.snippets || []).forEach((snip) => {
+        const wrap = document.createElement('div');
+        wrap.className = 'reddit-snippet';
+        const header = document.createElement('div');
+        header.className = 'reddit-snippet-header';
+        const badge = document.createElement('span');
+        badge.className = 'reddit-snippet-badge ' + (snip.positive ? 'pos' : 'neg');
+        badge.textContent = snip.positive ? 'Reddit · Positive' : 'Reddit · Negative';
+        const link = document.createElement('a');
+        link.href = snip.url;
+        link.target = '_blank';
+        link.style.color = '#2563eb';
+        link.style.fontSize = '0.75rem';
+        link.textContent = 'Open thread →';
+        header.appendChild(badge);
+        header.appendChild(link);
+        const body = document.createElement('div');
+        body.className = 'muted';
+        body.textContent = snip.text;
+        wrap.appendChild(header);
+        wrap.appendChild(body);
+        redditSnippets.appendChild(wrap);
+      });
+    }
+
+    function setNhtsaSafety(nhtsa) {
+      const section = document.getElementById('nhtsa-safety-section');
+      const grid = document.getElementById('nhtsa-safety-grid');
+      const recallsWrap = document.getElementById('nhtsa-recalls-wrap');
+      const recallsList = document.getElementById('nhtsa-recalls-list');
+      const complaintsWrap = document.getElementById('nhtsa-complaints-wrap');
+      const complaintsList = document.getElementById('nhtsa-complaints-list');
+
+      if (!section || !grid) return;
+
+      if (!nhtsa || (!nhtsa.recall_count && !nhtsa.complaint_count && !nhtsa.safety_ratings)) {
+        section.style.display = 'none';
+        return;
+      }
+
+      section.style.display = 'block';
+      grid.innerHTML = '';
+
+      const addStat = (label, value, cls = '') => {
+        const div = document.createElement('div');
+        div.className = 'nhtsa-stat';
+        div.innerHTML = `<div class="nhtsa-stat-label">${label}</div><div class="nhtsa-stat-value ${cls}">${value}</div>`;
+        grid.appendChild(div);
+      };
+
+      const recallCount = nhtsa.recall_count || 0;
+      addStat('Open recalls', recallCount, recallCount > 0 ? 'warn' : 'good');
+
+      const complaintCount = nhtsa.complaint_count || 0;
+      addStat('Complaints', complaintCount.toLocaleString(), complaintCount > 50 ? 'warn' : '');
+
+      const crashFire = nhtsa.crash_or_fire_reports || 0;
+      addStat('Crash/fire reports', crashFire, crashFire > 0 ? 'bad' : '');
+
+      const injuries = nhtsa.total_injuries || 0;
+      const deaths = nhtsa.total_deaths || 0;
+      if (injuries > 0 || deaths > 0) {
+        addStat('Injuries / deaths', `${injuries} / ${deaths}`, (deaths > 0 ? 'bad' : 'warn'));
+      }
+
+      const safety = nhtsa.safety_ratings || {};
+      if (safety.overall_rating) {
+        addStat('Safety rating', safety.overall_rating + ' / 5', safety.overall_rating >= 4 ? 'good' : '');
+      }
+
+      if (nhtsa.vin_decode && nhtsa.vin_decode.make) {
+        addStat('VIN decoded', nhtsa.vin_decode.make + ' ' + (nhtsa.vin_decode.model || ''), '');
+      }
+
+      if (recallCount > 0 && nhtsa.recalls && nhtsa.recalls.length) {
+        recallsWrap.style.display = 'block';
+        recallsList.innerHTML = '';
+        nhtsa.recalls.slice(0, 5).forEach((r) => {
+          const li = document.createElement('li');
+          li.textContent = (r.component ? r.component + ': ' : '') + (r.summary || '').slice(0, 120) + (r.summary && r.summary.length > 120 ? '…' : '');
+          recallsList.appendChild(li);
+        });
+      } else {
+        recallsWrap.style.display = 'none';
+      }
+
+      const comps = nhtsa.complaints_by_component || {};
+      const topComplaints = Object.entries(comps).sort((a, b) => b[1] - a[1]).slice(0, 5);
+      if (topComplaints.length) {
+        complaintsWrap.style.display = 'block';
+        complaintsList.innerHTML = '';
+        topComplaints.forEach(([comp, count]) => {
+          const li = document.createElement('li');
+          li.textContent = comp + ': ' + count + ' report' + (count !== 1 ? 's' : '');
+          complaintsList.appendChild(li);
+        });
+      } else {
+        complaintsWrap.style.display = 'none';
+      }
+    }
+
+    function getProductFromForm() {
+      const year = yearInput.value.trim();
+      const make = makeInput.value.trim();
+      const model = modelInput.value.trim();
+      // Auto.dev and our parser expect \"Make Model Year\" ordering.
+      return [make, model, year].filter(Boolean).join(' ');
+    }
+
+    async function runAnalysis(overrides) {
+      setError('');
+      const product = getProductFromForm();
+      const make = makeInput.value.trim();
+      const model = modelInput.value.trim();
+      const year = yearInput.value.trim();
+      const category = 'vehicles';
+      const vehicleCondition = activeVehicleCondition;
+      const price = parseFloat(priceInput.value);
+      const years = parseInt(yearsInput.value || '5', 10);
+      const context = null;
+
+      if (!product || !make || !model || !year || !isFinite(price)) {
+        setError('Please enter year, make, model and a numeric quoted price.');
+        return;
+      }
+
+      const yearNum = parseInt(yearInput.value.trim(), 10);
+      const currentYear = new Date().getFullYear();
+      if (!isNaN(yearNum) && yearNum > currentYear) {
+        setError('Invalid year: ' + yearNum + ' is in the future. Please enter the current year or earlier.');
+        return;
+      }
+
+      analyzeBtn.disabled = true;
+      analyzeBtn.classList.add('loading');
+      const btnText = analyzeBtn.querySelector('.btn-text');
+      if (btnText) btnText.textContent = 'Analyzing…';
+
+      try {
+        const vin = (vinInput && vinInput.value) ? vinInput.value.trim().toUpperCase() : null;
+        const payload = {
+          product,
+          make,
+          model,
+          year,
+          category,
+          vehicle_condition: vehicleCondition,
+          vin: vin || undefined,
+          price,
+          subcategory: null,
+          years,
+          context,
+          overrides: overrides || {}
+        };
+
+        const res = await fetch('/api/analyze', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        console.log('[BYB] Request payload:', payload);
+        console.log('[BYB] Live cost data from server:', data.live_cost_data);
+        console.log('[BYB] Price analysis from server:', data.price_analysis);
+        if (!res.ok) {
+          setError(data.error || 'Analysis failed. Please try again.');
+          return;
+        }
+
+        setPriceAnalysis(data.price_analysis);
+        setTrueCost(data.hidden_costs, years);
+        setAssumptions(data.hidden_costs && data.hidden_costs.editable_defaults);
+        setGotchas(data.gotchas);
+        setNegotiationTips(data.gotchas && data.gotchas.negotiation_tips);
+        setTiming(data.timing);
+        setReviews(data.reviews);
+        setNhtsaSafety(data.reviews && data.reviews.nhtsa);
+        lastAnalysisData = data;
+        if (summaryResults && summaryResults.style.display === 'none') {
+          summaryResults.style.display = 'grid';
+        }
+        if (!((data.live_cost_data && data.live_cost_data.retail_prices) || []).length) {
+          setError(`No live ${vehicleCondition} ${year} ${make} ${model} pricing found in Auto.dev right now. Try another year, model, or vehicle condition.`);
+        }
+
+        if (insightsColumn && insightsColumn.style.display === 'none') {
+          insightsColumn.style.display = 'flex';
+        }
+        if (askAiMessagesEl) { askAiMessagesEl.innerHTML = ''; askAiMessages = []; }
+      } catch (err) {
+        console.error(err);
+        setError('Something went wrong talking to the server. Is it running at http://localhost:5000 ?');
+      } finally {
+        analyzeBtn.disabled = false;
+        analyzeBtn.classList.remove('loading');
+        const t = analyzeBtn.querySelector('.btn-text');
+        if (t) t.textContent = 'Run analysis';
+      }
+    }
+
+    analyzeBtn.addEventListener('click', () => runAnalysis());
+
+    const askAiOverlay = document.getElementById('ask-ai-overlay');
+    const askAiPanel = document.getElementById('ask-ai-panel');
+    const askAiClose = document.getElementById('ask-ai-close');
+    const askAiMessagesEl = document.getElementById('ask-ai-messages');
+    const askAiInput = document.getElementById('ask-ai-input');
+    const askAiSend = document.getElementById('ask-ai-send');
+
+    async function openAskAiPanel() {
+      const make = makeInput.value.trim();
+      const model = modelInput.value.trim();
+      const year = yearInput.value.trim();
+      const product = getProductFromForm();
+      const vehicleCondition = activeVehicleCondition;
+      const price = parseFloat(priceInput.value);
+      const years = parseInt(yearsInput.value || '5', 10);
+      const vin = (vinInput && vinInput.value) ? vinInput.value.trim().toUpperCase() : null;
+
+      if (!make || !model || !year) {
+        setError('Please enter year, make, and model first.');
+        return;
+      }
+      askAiOverlay.classList.add('open');
+      askAiPanel.classList.add('open');
+      askAiOverlay.setAttribute('aria-hidden', 'false');
+      askAiPanel.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+
+      if (askAiMessagesEl.children.length === 0) {
+        if (lastAnalysisData && product && isFinite(price)) {
+          const loading = document.createElement('div');
+          loading.className = 'ask-ai-msg assistant skeleton-loading';
+          loading.textContent = 'Getting your summary…';
+          askAiMessagesEl.appendChild(loading);
+          try {
+            const res = await fetch('/api/ai-analyze', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                input: { product, make, model, year, vehicle_condition: vehicleCondition, vin: vin || undefined, price, years },
+                analysis: lastAnalysisData,
+              }),
+            });
+            const data = await res.json();
+            loading.remove();
+            if (res.ok && data.text) {
+              const summary = document.createElement('div');
+              summary.className = 'ask-ai-msg assistant';
+              summary.textContent = data.text;
+              askAiMessagesEl.appendChild(summary);
+              askAiMessages.push({ role: 'assistant', content: data.text });
+            } else {
+              const fallback = document.createElement('div');
+              fallback.className = 'ask-ai-msg assistant';
+              fallback.textContent = `Hi! I can help with your ${year} ${make} ${model}. Ask me about pricing, costs, timing, or anything else.`;
+              askAiMessagesEl.appendChild(fallback);
+            }
+          } catch (err) {
+            loading.remove();
+            const errMsg = document.createElement('div');
+            errMsg.className = 'ask-ai-msg assistant';
+            errMsg.textContent = 'Could not load summary. Ask me anything about your car.';
+            askAiMessagesEl.appendChild(errMsg);
+          }
+        } else {
+          const welcome = document.createElement('div');
+          welcome.className = 'ask-ai-msg assistant';
+          welcome.textContent = `Run an analysis above to get a personalized summary with:\n\n• Price verdict & whether to negotiate\n• True cost over 5 years\n• Best timing to buy\n• Owner pros & cons\n• Gotchas & junk fees to avoid\n• Next steps & actions to take\n\nThen come back and ask me anything.`;
+          askAiMessagesEl.appendChild(welcome);
+        }
+      }
+      askAiInput.focus();
+    }
+
+    function closeAskAiPanel() {
+      askAiOverlay.classList.remove('open');
+      askAiPanel.classList.remove('open');
+      askAiOverlay.setAttribute('aria-hidden', 'true');
+      askAiPanel.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    askAiBtn.addEventListener('click', openAskAiPanel);
+    askAiClose.addEventListener('click', closeAskAiPanel);
+    askAiOverlay.addEventListener('click', closeAskAiPanel);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && askAiPanel.classList.contains('open')) closeAskAiPanel();
+    });
+
+    async function sendAskAiMessage() {
+      const msg = (askAiInput && askAiInput.value || '').trim();
+      if (!msg) return;
+      const product = getProductFromForm();
+      const make = makeInput.value.trim();
+      const model = modelInput.value.trim();
+      const year = yearInput.value.trim();
+      const vehicleCondition = activeVehicleCondition;
+      const price = parseFloat(priceInput.value);
+      const years = parseInt(yearsInput.value || '5', 10);
+      const vin = (vinInput && vinInput.value) ? vinInput.value.trim().toUpperCase() : null;
+      if (!make || !model || !year) return;
+
+      askAiInput.value = '';
+      const userDiv = document.createElement('div');
+      userDiv.className = 'ask-ai-msg user';
+      userDiv.textContent = msg;
+      askAiMessagesEl.appendChild(userDiv);
+      askAiMessagesEl.scrollTop = askAiMessagesEl.scrollHeight;
+
+      askAiMessages.push({ role: 'user', content: msg });
+      askAiSend.disabled = true;
+
+      const placeholder = document.createElement('div');
+      placeholder.className = 'ask-ai-msg assistant';
+      placeholder.textContent = '…';
+      askAiMessagesEl.appendChild(placeholder);
+      askAiMessagesEl.scrollTop = askAiMessagesEl.scrollHeight;
+
+      try {
+        const res = await fetch('/api/ai-chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            input: {
+              product, make, model, year,
+              vehicle_condition: vehicleCondition,
+              vin: vin || undefined,
+              price, years,
+            },
+            analysis: lastAnalysisData || undefined,
+            messages: askAiMessages.slice(0, -1),
+            user_message: msg,
+          }),
+        });
+        const data = await res.json();
+        placeholder.remove();
+        if (!res.ok) {
+          const errDiv = document.createElement('div');
+          errDiv.className = 'ask-ai-msg assistant';
+          errDiv.textContent = 'Sorry, something went wrong: ' + (data.error || 'Unknown error');
+          askAiMessagesEl.appendChild(errDiv);
+        } else {
+          askAiMessages.push({ role: 'assistant', content: data.text });
+          const assistantDiv = document.createElement('div');
+          assistantDiv.className = 'ask-ai-msg assistant';
+          assistantDiv.textContent = data.text;
+          askAiMessagesEl.appendChild(assistantDiv);
+        }
+        askAiMessagesEl.scrollTop = askAiMessagesEl.scrollHeight;
+      } catch (err) {
+        placeholder.remove();
+        const errDiv = document.createElement('div');
+        errDiv.className = 'ask-ai-msg assistant';
+        errDiv.textContent = 'Failed to send. Please try again.';
+        askAiMessagesEl.appendChild(errDiv);
+        askAiMessagesEl.scrollTop = askAiMessagesEl.scrollHeight;
+      } finally {
+        askAiSend.disabled = false;
+      }
+    }
+
+    if (askAiSend && askAiInput) {
+      askAiSend.addEventListener('click', sendAskAiMessage);
+      askAiInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          sendAskAiMessage();
+        }
+      });
+    }
+
+    assumptionsPanel.querySelector('.collapsible-header').addEventListener('click', () => {
+      assumptionsPanel.classList.toggle('open');
+      const icon = document.getElementById('assumptions-toggle-icon');
+      icon.textContent = assumptionsPanel.classList.contains('open') ? '▴' : '▾';
+    });
+
+    recalcBtn.addEventListener('click', () => {
+      const inputs = assumptionsGrid.querySelectorAll('input[data-key]');
+      const overrides = {};
+      inputs.forEach((el) => {
+        const key = el.dataset.key;
+        const val = parseFloat(el.value);
+        if (key && isFinite(val)) {
+          overrides[key] = val;
+        }
+      });
+      runAnalysis(overrides);
+    });
+
+    examplesRow.addEventListener('click', async (e) => {
+      const btn = e.target.closest('button[data-example]');
+      if (!btn) return;
+      const key = btn.dataset.example;
+      const examples = VEHICLE_EXAMPLES[activeVehicleCondition] || [];
+      const example = examples.find((item) => item.key === key);
+      if (example) {
+        yearInput.value = example.year;
+        makeInput.value = example.make;
+        await updateModelDropdown(example.model);
+        modelInput.value = example.model;
+        priceInput.value = example.price;
+        yearsInput.value = example.years;
+      }
+      runAnalysis();
+    });
+  </script>
+  <div id="timing-hover-tooltip" style="display: none;" aria-hidden="true"></div>
+</body>
+</html>
+

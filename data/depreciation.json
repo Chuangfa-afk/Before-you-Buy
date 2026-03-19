@@ -1,0 +1,13 @@
+{
+  "vehicles": {
+    "default_annual_pct": 15,
+    "compact": { "annual_pct": 14 },
+    "sedan": { "annual_pct": 15 },
+    "hybrid": { "annual_pct": 13 },
+    "minivan": { "annual_pct": 14 },
+    "suv": { "annual_pct": 13 },
+    "truck": { "annual_pct": 12 },
+    "electric": { "annual_pct": 20 },
+    "luxury_sedan": { "annual_pct": 18 }
+  }
+}

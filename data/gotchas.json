@@ -1,0 +1,161 @@
+{
+  "vehicles": [
+    {
+      "name": "Dealer Markup / Market Adjustment",
+      "typical_cost": 2000,
+      "condition": "both",
+      "severity": "high",
+      "negotiable": true,
+      "description": "Added on top of MSRP during high-demand periods. Often fully negotiable or avoidable by shopping around."
+    },
+    {
+      "name": "Documentation Fee",
+      "typical_cost": 400,
+      "condition": "both",
+      "severity": "medium",
+      "negotiable": true,
+      "description": "Paperwork preparation fee that varies wildly by dealer. Ask for an itemized breakdown and push back on excessive charges."
+    },
+    {
+      "name": "Nitrogen-Filled Tires",
+      "typical_cost": 200,
+      "condition": "both",
+      "severity": "medium",
+      "negotiable": true,
+      "description": "Often sold as a premium safety or performance upgrade, but usually carries a steep markup for very limited practical benefit."
+    },
+    {
+      "name": "Dealer-Installed Accessories",
+      "typical_cost": 1500,
+      "condition": "both",
+      "severity": "high",
+      "negotiable": true,
+      "description": "Wheel locks, cargo mats, tint, alarms, and similar accessories are often preloaded onto the car and marked up far above market value. Ask for the addendum sheet before negotiating."
+    },
+    {
+      "name": "Extended Warranty Bundles",
+      "typical_cost": 2500,
+      "condition": "both",
+      "severity": "medium",
+      "negotiable": true,
+      "description": "Packages that roll warranties, maintenance, and protections into the loan. Compare standalone pricing and skip unneeded coverage."
+    },
+    {
+      "name": "Financing APR Markup",
+      "typical_cost": 1800,
+      "condition": "both",
+      "severity": "high",
+      "negotiable": true,
+      "description": "Dealers can mark up your loan rate above the lender buy rate. Even a 1-2 point increase can add thousands over the life of the loan."
+    },
+    {
+      "name": "Yo-Yo Financing / Spot Delivery",
+      "typical_cost": 2200,
+      "condition": "both",
+      "severity": "high",
+      "negotiable": true,
+      "description": "You take the car home before financing is truly final, then get called back to sign at a worse rate or larger down payment. Do not assume the deal is final until funding is complete."
+    },
+    {
+      "name": "Mandatory Protection Package",
+      "typical_cost": 1200,
+      "condition": "both",
+      "severity": "high",
+      "negotiable": true,
+      "description": "Some stores present paint, fabric, theft, or maintenance packages as required. They usually are not required to buy the car."
+    },
+    {
+      "name": "Fabric Protection",
+      "typical_cost": 900,
+      "condition": "both",
+      "severity": "medium",
+      "negotiable": true,
+      "description": "Fabric, leather, stain, or interior protection products are commonly sold in the finance office at very high margins. They are rarely necessary at dealer pricing."
+    },
+    {
+      "name": "Destination / Delivery Charges",
+      "typical_cost": 1395,
+      "condition": "new",
+      "severity": "medium",
+      "negotiable": false,
+      "description": "Factory destination charges on new cars are usually legitimate, but watch for duplicate freight, handling, or delivery fees added again by the dealer."
+    },
+    {
+      "name": "Payment Packing",
+      "typical_cost": 900,
+      "condition": "both",
+      "severity": "high",
+      "negotiable": true,
+      "description": "The salesperson focuses on the monthly payment and quietly adds products or stretches the loan term. Always review the full out-the-door breakdown, APR, and term length."
+    },
+    {
+      "name": "Gap Insurance",
+      "typical_cost": 800,
+      "condition": "both",
+      "severity": "low",
+      "negotiable": true,
+      "description": "Useful in some cases, but often cheaper through your insurer than the dealer."
+    },
+    {
+      "name": "Trade-In Undervaluation",
+      "typical_cost": 2000,
+      "condition": "both",
+      "severity": "medium",
+      "negotiable": true,
+      "description": "A strong sale price can be offset by a weak trade-in offer. Always separate the new-car deal from the trade value when negotiating."
+    },
+    {
+      "name": "Certified Pre-Owned Fee Premium",
+      "typical_cost": 1400,
+      "condition": "used",
+      "severity": "medium",
+      "negotiable": true,
+      "description": "CPO vehicles can be worth the premium, but some dealers charge far more than the warranty value justifies. Compare similar non-CPO listings."
+    },
+    {
+      "name": "Open Recall or Incomplete Reconditioning",
+      "typical_cost": 1000,
+      "condition": "used",
+      "severity": "medium",
+      "negotiable": true,
+      "description": "A used vehicle may still need recall work, tires, brakes, or overdue service. Ask for the reconditioning report and recall status before signing."
+    },
+    {
+      "name": "Salvage / Rebuilt Title History",
+      "typical_cost": 4000,
+      "condition": "used",
+      "severity": "high",
+      "negotiable": false,
+      "description": "A rebuilt or salvage-history car can look fine but carry hidden structural, insurance, and resale risk. Verify title status and accident history independently."
+    },
+    {
+      "name": "Tire or Brake Wear After Purchase",
+      "typical_cost": 1200,
+      "condition": "used",
+      "severity": "medium",
+      "negotiable": true,
+      "description": "A used car may look clean but still need tires, brakes, or a battery soon after purchase. Ask for tread depth, brake measurements, and service records."
+    },
+    {
+      "name": "Second Key / Missing Accessories",
+      "typical_cost": 400,
+      "condition": "used",
+      "severity": "low",
+      "negotiable": true,
+      "description": "Replacing a missing smart key, charging cable, cargo cover, or floor mats can cost hundreds after delivery. Confirm included accessories in writing."
+    }
+  ],
+  "tips": {
+    "vehicles": "Get out-the-door quotes from multiple dealers, compare every line item, and separate the vehicle price, financing, trade-in, and add-ons before signing."
+  },
+  "negotiation_tips": [
+    "Shop at month-end or year-end when dealers push to hit quotas.",
+    "Get pre-approved financing from your bank or credit union before visiting the dealer.",
+    "Negotiate the out-the-door price, not the monthly payment.",
+    "Never discuss your trade-in until after you've agreed on the new car price.",
+    "Get written quotes from at least 3 dealers and use them against each other.",
+    "Say no to add-ons in the finance office — you can buy them cheaper elsewhere.",
+    "If the deal isn't right, walk away. There's always another car.",
+    "Review every line item on the buyer's order before signing."
+  ]
+}

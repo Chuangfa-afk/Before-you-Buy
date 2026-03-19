@@ -1,0 +1,13 @@
+{
+  "vehicles": {
+    "fuel": {
+      "annual_fuel_cost": 1600
+    },
+    "charging": {
+      "annual_charging_cost": 600
+    },
+    "insurance_rate_pct": 4.0,
+    "registration": 400,
+    "maintenance": 800
+  }
+}

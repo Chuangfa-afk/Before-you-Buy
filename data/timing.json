@@ -1,0 +1,13 @@
+{
+  "vehicles": {
+    "best_months": [10, 11, 12],
+    "worst_months": [3, 4, 5],
+    "worst_premium_pct": 5,
+    "best_events": [
+      { "name": "Model Year Clearance", "month": 11 },
+      { "name": "End-of-Year Deals", "month": 12 }
+    ],
+    "tips": "End-of-month and end-of-year are typically strongest for negotiating, especially on prior model years.",
+    "save_potential_pct": 10
+  }
+}

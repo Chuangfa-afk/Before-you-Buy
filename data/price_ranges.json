@@ -1,0 +1,12 @@
+{
+  "vehicles": {
+    "sedan": { "low": 22000, "mid": 28000, "high": 35000, "markup_pct": 5, "negotiable_pct": 8 },
+    "suv": { "low": 26000, "mid": 34000, "high": 45000, "markup_pct": 6, "negotiable_pct": 10 },
+    "truck": { "low": 32000, "mid": 42000, "high": 60000, "markup_pct": 7, "negotiable_pct": 12 },
+    "luxury_sedan": { "low": 45000, "mid": 60000, "high": 85000, "markup_pct": 10, "negotiable_pct": 15 },
+    "compact": { "low": 18000, "mid": 23000, "high": 28000, "markup_pct": 4, "negotiable_pct": 5 },
+    "electric": { "low": 35000, "mid": 48000, "high": 65000, "markup_pct": 5, "negotiable_pct": 8 },
+    "hybrid": { "low": 26000, "mid": 33000, "high": 42000, "markup_pct": 5, "negotiable_pct": 8 },
+    "minivan": { "low": 32000, "mid": 38000, "high": 48000, "markup_pct": 6, "negotiable_pct": 10 }
+  }
+}

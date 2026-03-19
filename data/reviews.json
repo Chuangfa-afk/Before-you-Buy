@@ -1,0 +1,50 @@
+{
+  "vehicles": {
+    "sedan": {
+      "pros": [
+        "Balanced comfort and efficiency for daily commuting.",
+        "Lower insurance and purchase costs than larger vehicles.",
+        "Easier to park and maneuver in tight urban spaces.",
+        "Often more fuel efficient than SUVs and trucks."
+      ],
+      "cons": [
+        "Limited cargo and passenger space for larger families.",
+        "Ground clearance can be an issue in snow or rough roads.",
+        "Resale value can be weaker than popular SUV models."
+      ]
+    },
+    "suv": {
+      "pros": [
+        "Flexible cargo and seating configurations for families.",
+        "Higher driving position and perceived safety.",
+        "All-wheel drive options for challenging weather."
+      ],
+      "cons": [
+        "Higher fuel and tire costs than sedans.",
+        "More expensive to purchase and insure.",
+        "Can be cumbersome to park in dense cities."
+      ]
+    },
+    "truck": {
+      "pros": [
+        "Excellent towing and hauling capability.",
+        "Durable frames for work and outdoor use."
+      ],
+      "cons": [
+        "Very high fuel costs and maintenance for heavy-duty models.",
+        "Ride quality and maneuverability can suffer in cities."
+      ]
+    },
+    "electric": {
+      "pros": [
+        "Very low fueling and maintenance costs.",
+        "Instant torque and quiet operation.",
+        "Potential tax credits and HOV lane access."
+      ],
+      "cons": [
+        "Range and charging infrastructure vary by region.",
+        "Battery degradation over time can affect resale value."
+      ]
+    }
+  }
+}
