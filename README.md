@@ -151,7 +151,7 @@ Built for speed and accuracy — not to impress engineers, but to actually help 
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/before-you-buy.git
+git clone https://github.com/Chuangfa-afk/before-you-buy.git
 cd before-you-buy
 
 # Create virtual environment
